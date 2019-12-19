@@ -7,7 +7,7 @@
   "window": {
     "backgroundColor": "#F6F6F6",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#F6F6F6",
+    "navigationBarBackgroundColor": "#d4237a",
     "navigationBarTitleText": "含笑半步钉",
     "navigationBarTextStyle": "black"
   },
@@ -23,7 +23,7 @@
       },
       {
         "pagePath": "pages/blog/blog",
-        "text": "分享",
+        "text": "发现",
         "iconPath": "images/blog.png",
         "selectedIconPath": "images/blog-actived.png"
       },
