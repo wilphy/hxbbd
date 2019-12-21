@@ -60,7 +60,11 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
+    this.setData({
+      playList: [] //清空数据
+    })
 
+    this._getPlaylist()
   },
 
   /**
@@ -93,6 +97,7 @@ Page({
       this.setData({
         playList: this.data.playList.concat(res.result.data)
       })
+      wx.stopPullDownRefresh()
       wx.hideLoading()
     })
   }
