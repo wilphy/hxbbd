@@ -1,6 +1,6 @@
 {
   "usingComponents": {
-    "list-box": "/components/playlist/playlist"
+    "w-playlist": "/components/playlist/playlist"
   },
   "enablePullDownRefresh": true
 }

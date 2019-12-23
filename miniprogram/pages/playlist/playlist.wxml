@@ -8,6 +8,6 @@
 
 <view class="playlist-container">
   <block wx:for="{{ playList }}" wx:key="{{}}">
-    <list-box playlist="{{ item }}"></list-box>
+    <w-playlist playlist="{{ item }}"></w-playlist>
   </block>
 </view>

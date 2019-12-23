@@ -86,6 +86,7 @@ Page({
     wx.showLoading({
       title: '加载中',
     })
+    // 请求云函数
     wx.cloud.callFunction({
       name: "music",
       data: {
