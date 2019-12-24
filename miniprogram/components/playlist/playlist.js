@@ -31,6 +31,13 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    goToMusiclist() {
+      wx.navigateTo({
+        url: `../../pages/musiclist/musiclist?playlistId=${this.properties.playlist.id}`,
+      })
+    },
+
+
     //数字转化处理
     //num为要处理的数字，point为小数点后几位
     _transNumber(num, point) {
