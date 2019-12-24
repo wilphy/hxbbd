@@ -1,2 +1,13 @@
 <!--miniprogram/pages/musclist/musiclist.wxml-->
-<text>miniprogram/pages/musclist/musiclist.wxml</text>
+
+<!-- 封面信息 -->
+<view class="listinfo-container" style="background: url({{ listinfo.coverImgUrl }}) no-repeat top/cover"></view>
+<!-- 遮罩 -->
+<view class="listinfo-mask"></view>
+
+<view class="detail-info">
+  <image src="{{ listinfo.coverImgUrl }}" class="detail-img"></image>
+  <view class="detail">
+    <view class="detail-name">{{ listinfo.name }}</view>
+  </view>
+</view>

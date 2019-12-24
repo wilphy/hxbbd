@@ -1,1 +1,47 @@
 /* miniprogram/pages/musclist/musiclist.wxss */
+
+.listinfo-container {
+  height: 320rpx;
+  filter: blur(40rpx);
+  opacity: 0.7;
+}
+
+.listinfo-mask {
+  position: absolute;
+  width: 100%;
+  height: 320rpx;
+  background-color: #333;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+.detail-info {
+  display: flex;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 320rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  align-items: center;
+}
+
+.detail-img {
+  width: 280rpx;
+  height: 280rpx;
+  margin-right: 24rpx;
+  border-radius: 10rpx;
+}
+
+.detail {
+  flex-grow: 1;
+  line-height: 60rpx;
+  width: 0;
+}
+
+.detail view {
+  font-size: 36rpx;
+  font-weight: 400;
+}
