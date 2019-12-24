@@ -11,3 +11,5 @@
     <view class="detail-name">{{ listinfo.name }}</view>
   </view>
 </view>
+
+<w-musiclist musiclist="{{ musiclist }}" />
