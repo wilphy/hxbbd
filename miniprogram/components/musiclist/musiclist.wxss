@@ -23,9 +23,14 @@
   color: #222;
   overflow: hidden;
   text-overflow: ellipsis;
+  padding-bottom: 10rpx;
 }
 
 .musiclist-singer {
   color: #666;
   font-size: 28rpx;
+}
+
+.playing view, .playing text {
+  color: #d4237a;
 }

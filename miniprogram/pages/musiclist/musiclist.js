@@ -13,6 +13,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    wx.showLoading({
+      title: '加载中',
+    })
     // console.log(options)
     wx.cloud.callFunction({
       name: 'music',
@@ -21,7 +24,7 @@ Page({
         $url: 'musiclist'
       }
     }).then(res => {
-      console.log(res)
+      // console.log(res)
       this.setData({
         musiclist: res.result.playlist.tracks,
         listinfo: {
@@ -29,6 +32,7 @@ Page({
           name: res.result.playlist.name
         }
       })
+      wx.hideLoading()
     })
   },
 
