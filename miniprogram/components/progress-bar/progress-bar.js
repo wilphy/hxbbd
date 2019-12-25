@@ -3,6 +3,8 @@
 let movableAreaWidth = 0
 let movableViewWidth = 0
 const backgroundAudioManager = wx.getBackgroundAudioManager()
+let currentSec = -1 //当前的秒数
+let duration = 0 //当前歌曲的总时长，以秒为单位
 
 Component({
   /**
@@ -54,6 +56,9 @@ Component({
       backgroundAudioManager.onStop(() => {
         console.log('onStop')
       })
+      backgroundAudioManager.onPause(() => {
+        console.log('onPause')
+      })
       backgroundAudioManager.onWaiting(() => {
         console.log('onWaiting')
       })
@@ -69,7 +74,22 @@ Component({
         }
       })
       backgroundAudioManager.onTimeUpdate(() => {
-        console.log('onTimeUpdate')
+        // console.log('onTimeUpdate')
+        const currentTime = backgroundAudioManager.currentTime
+        const duration = backgroundAudioManager.duration
+
+        const sec = currentTime.toString().split('.')[0]
+        if (sec != currentSec) {
+          // console.log(currentTime)
+          const currentTimeFmt = this._dateFormat(currentTime)
+          this.setData({
+            movableDis: (movableAreaWidth - movableViewWidth) * currentTime / duration,
+            progress: currentTime / duration * 100,
+            ['showTime.currentTime']: `${currentTimeFmt.min}:${currentTimeFmt.sec}`
+          })
+          currentSec = sec
+        }
+
       })
       backgroundAudioManager.onEnded(() => {
         console.log('onEnded')
@@ -84,13 +104,14 @@ Component({
     },
 
     _setTime() {
-      const duration = backgroundAudioManager.duration
+      duration = backgroundAudioManager.duration
       // console.log(duration)
       const durationFmt = this._dateFormat(duration)
       // console.log(durationFmt)
       this.setData({
         ['showTime.totalTime']: `${durationFmt.min}:${durationFmt.sec}`
       })
+      duration = duration
     },
 
     //格式化时间
@@ -105,6 +126,26 @@ Component({
     //处理个位数的分/秒，补0
     _parse0(sec) {
       return sec < 10 ? '0' + sec : sec
+    },
+
+    //当用户拖拽进度条
+    onChange(event) {
+      console.log(event)
+      //拖动
+      if (event.detail.source === "touch") {
+        this.data.progress = event.detail.x / (movableAreaWidth - movableViewWidth) * 100
+        this.data.movableDis = event.detail.x
+      }
+    },
+    //进度条拖拽完毕
+    onTouchEnd() {
+      const currentTimeFmt = this._dateFormat(Math.floor(backgroundAudioManager.currentTime))
+      this.setData({
+        progress: this.data.progress,
+        movableDis: this.data.movableDis,
+        ['showTime.currentTime']: currentTimeFmt.min + ':' + currentTimeFmt.sec
+      })
+      backgroundAudioManager.seek(duration * this.data.progress / 100)
     }
   }
 })

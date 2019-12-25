@@ -2,8 +2,12 @@
   <text class="time">{{ showTime.currentTime }}</text>
   <view class="control">
     <movable-area class="movable-area">
-      <movable-view direction="horizontal" class="movable-view" 
+      <movable-view
+        direction="horizontal"
+        class="movable-view" 
         damping="1000" x="{{movableDis}}"
+        bindchange="onChange" 
+        bindtouchend="onTouchEnd"
       />
     </movable-area>
     <progress stroke-width="4" backgroundColor="#969696" activeColor="#fff" percent="{{progress}}" class=""></progress>
