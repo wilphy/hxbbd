@@ -2,14 +2,13 @@
 <view class="player-mask"></view>
 
 <view class="player-disc-container">
-  <view class="player-disc">
-    <image class="player-img" src="{{ picUrl }}"></image>
+  <view class="player-disc {{ isPlaying?'play':'' }}">
+    <image class="player-img rotation" src="{{ picUrl }}"></image>
   </view>
 </view>
 
 <view class="control">
   <text class="iconfont icon-shangyishoushangyige"></text>
-  <!-- <text class="iconfont icon-zanting1"></text> -->
-  <text class="iconfont icon-zanting"></text>
+  <text class="iconfont {{ isPlaying ? 'icon-zanting':'icon-bofangsanjiaoxing' }}" bindtap="togglePlaying"></text>
   <text class="iconfont icon-xiayigexiayishou"></text>
 </view>
