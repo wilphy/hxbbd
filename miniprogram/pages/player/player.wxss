@@ -69,6 +69,10 @@
   animation: rotation 12s linear infinite;
 }
 
+.rotation-paused {
+  animation-play-state: paused;
+}
+
 @keyframes rotation {
   from {
     transform: rotate(0deg);

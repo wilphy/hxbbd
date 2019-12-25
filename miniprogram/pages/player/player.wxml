@@ -3,12 +3,12 @@
 
 <view class="player-disc-container">
   <view class="player-disc {{ isPlaying?'play':'' }}">
-    <image class="player-img rotation" src="{{ picUrl }}"></image>
+    <image class="player-img rotation {{ isPlaying ? '' : 'rotation-paused'}}" src="{{ picUrl }}"></image>
   </view>
 </view>
 
 <view class="control">
-  <text class="iconfont icon-shangyishoushangyige"></text>
+  <text class="iconfont icon-shangyishoushangyige" bindtap="onPrev"></text>
   <text class="iconfont {{ isPlaying ? 'icon-zanting':'icon-bofangsanjiaoxing' }}" bindtap="togglePlaying"></text>
-  <text class="iconfont icon-xiayigexiayishou"></text>
+  <text class="iconfont icon-xiayigexiayishou" bindtap="onNext"></text>
 </view>

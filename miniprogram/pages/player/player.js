@@ -28,7 +28,9 @@ Page({
     this._loadMusicDetail(options.musicId)
   },
 
+  //获取音乐信息
   _loadMusicDetail(musicId) {
+    backgroundAudioManager.stop() //播放下一首时先停止当前的播放
     let music = musiclist[nowPlayingIndex]
     console.log(music)
     //设置标题
@@ -66,6 +68,7 @@ Page({
     })
   },
 
+  //控制播放/暂停
   togglePlaying() {
     if (this.data.isPlaying) {
       backgroundAudioManager.pause()
@@ -77,6 +80,30 @@ Page({
       isPlaying: !this.data.isPlaying
     })
   },
+
+  //上一首
+  onPrev() {
+    nowPlayingIndex-- //索引-1
+    //如果当前为第一首，则返回歌单中最后一首
+    if (nowPlayingIndex < 0) {
+      nowPlayingIndex = musiclist.length - 1
+    }
+    //更新将要播放的歌曲
+    this._loadMusicDetail(musiclist[nowPlayingIndex].id)
+  },
+
+  //下一首
+  onNext() {
+    nowPlayingIndex++ //索引+1
+    //如果当前为最后一首，则返回第一首
+    if (nowPlayingIndex === musiclist.length) {
+      nowPlayingIndex = 0
+    }
+    //更新将要播放的歌曲
+    this._loadMusicDetail(musiclist[nowPlayingIndex].id)
+  },
+
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
