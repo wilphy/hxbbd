@@ -59,3 +59,25 @@
   margin-top: -184rpx;
   margin-left: -184rpx;
 }
+
+.control {
+  position: absolute;
+  bottom: 8%;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+}
+
+.control .iconfont {
+  color: #fefefe;
+}
+
+.icon-shangyishoushangyige, .icon-xiayigexiayishou {
+  font-size: 80rpx;
+}
+
+.icon-zanting {
+  font-size: 80rpx;
+  margin: 0 120rpx;
+}

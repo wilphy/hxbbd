@@ -6,3 +6,10 @@
     <image class="player-img" src="{{ picUrl }}"></image>
   </view>
 </view>
+
+<view class="control">
+  <text class="iconfont icon-shangyishoushangyige"></text>
+  <!-- <text class="iconfont icon-zanting1"></text> -->
+  <text class="iconfont icon-zanting"></text>
+  <text class="iconfont icon-xiayigexiayishou"></text>
+</view>
