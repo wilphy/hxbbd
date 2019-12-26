@@ -5,6 +5,8 @@ let movableViewWidth = 0
 const backgroundAudioManager = wx.getBackgroundAudioManager()
 let currentSec = -1 //当前的秒数
 let duration = 0 //当前歌曲的总时长，以秒为单位
+//当前进度条是否被拖拽移动
+let isMoving = false //解决：当进度条拖动时和updatetime事件的冲突
 
 Component({
   /**
@@ -52,6 +54,7 @@ Component({
     _bindBGMEvent() {
       backgroundAudioManager.onPlay(() => {
         console.log('onPlay')
+        isMoving = false
       })
       backgroundAudioManager.onStop(() => {
         console.log('onStop')
@@ -75,22 +78,24 @@ Component({
       })
       backgroundAudioManager.onTimeUpdate(() => {
         // console.log('onTimeUpdate')
-        const currentTime = backgroundAudioManager.currentTime
-        const duration = backgroundAudioManager.duration
+        if (!isMoving) {
+          const currentTime = backgroundAudioManager.currentTime
+          const duration = backgroundAudioManager.duration
 
-        const sec = currentTime.toString().split('.')[0]
-        if (sec != currentSec) {
-          // console.log(currentTime)
-          const currentTimeFmt = this._dateFormat(currentTime)
-          this.setData({
-            movableDis: (movableAreaWidth - movableViewWidth) * currentTime / duration,
-            progress: currentTime / duration * 100,
-            ['showTime.currentTime']: `${currentTimeFmt.min}:${currentTimeFmt.sec}`
-          })
-          currentSec = sec
+          const sec = currentTime.toString().split('.')[0]
+          if (sec != currentSec) {
+            // console.log(currentTime)
+            const currentTimeFmt = this._dateFormat(currentTime)
+            this.setData({
+              movableDis: (movableAreaWidth - movableViewWidth) * currentTime / duration,
+              progress: currentTime / duration * 100,
+              ['showTime.currentTime']: `${currentTimeFmt.min}:${currentTimeFmt.sec}`
+            })
+            currentSec = sec
+          }
         }
-
       })
+
       backgroundAudioManager.onEnded(() => {
         console.log('onEnded')
         this.triggerEvent('musicEnd')
@@ -136,6 +141,7 @@ Component({
       if (event.detail.source === "touch") {
         this.data.progress = event.detail.x / (movableAreaWidth - movableViewWidth) * 100
         this.data.movableDis = event.detail.x
+        isMoving = true
       }
     },
     //进度条拖拽完毕
@@ -147,6 +153,7 @@ Component({
         ['showTime.currentTime']: currentTimeFmt.min + ':' + currentTimeFmt.sec
       })
       backgroundAudioManager.seek(duration * this.data.progress / 100)
+      isMoving = false
     }
   }
 })
