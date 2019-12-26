@@ -9,7 +9,7 @@
 
   <!-- 进度条 -->
   <view class="progress-bar">
-    <w-progress-bar />
+    <w-progress-bar bind:musicEnd="onNext" />
   </view>
 
   <!-- 控制面板 -->

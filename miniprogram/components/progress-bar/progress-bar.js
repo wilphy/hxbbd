@@ -93,6 +93,7 @@ Component({
       })
       backgroundAudioManager.onEnded(() => {
         console.log('onEnded')
+        this.triggerEvent('musicEnd')
       })
       backgroundAudioManager.onError((res) => {
         console.error(res.errMsg)
