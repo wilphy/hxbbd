@@ -47,7 +47,7 @@ Page({
       picUrl: music.al.picUrl,
       isPlaying: false
     })
-  
+
     //把当前播放歌曲的id设置成全局的
     app.setPlayMusicId(musicId)
 
@@ -142,6 +142,17 @@ Page({
     this.selectComponent('.lyric').update(event.detail.currentTime)
   },
 
+  //播放组件与小程序自带播放器的按钮联动
+  onPlay() {
+    this.setData({
+      isPlaying: true
+    })
+  },
+  onPause() {
+    this.setData({
+      isPlaying: false
+    })
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

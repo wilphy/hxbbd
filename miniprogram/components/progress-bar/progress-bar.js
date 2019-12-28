@@ -55,12 +55,14 @@ Component({
       backgroundAudioManager.onPlay(() => {
         console.log('onPlay')
         isMoving = false
+        this.triggerEvent('onPlay')
       })
       backgroundAudioManager.onStop(() => {
         console.log('onStop')
       })
       backgroundAudioManager.onPause(() => {
         console.log('onPause')
+        this.triggerEvent('onPause')
       })
       backgroundAudioManager.onWaiting(() => {
         console.log('onWaiting')

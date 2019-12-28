@@ -12,7 +12,7 @@
 
   <!-- 进度条 -->
   <view class="progress-bar">
-    <w-progress-bar bind:musicEnd="onNext" bind:timeUpdate="timeUpdate"/>
+    <w-progress-bar bind:musicEnd="onNext" bind:onPlay="onPlay" bind:onPause="onPause" bind:timeUpdate="timeUpdate" />
   </view>
 
   <!-- 控制面板 -->
