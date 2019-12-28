@@ -34,7 +34,7 @@ Page({
   _loadMusicDetail(musicId) {
     backgroundAudioManager.stop() //播放下一首时先停止当前的播放
     let music = musiclist[nowPlayingIndex]
-    console.log(music)
+    // console.log(music)
     //设置标题
     wx.setNavigationBarTitle({
       title: music.name,
@@ -56,7 +56,7 @@ Page({
         $url: 'musicUrl'
       }
     }).then(res => {
-      console.log(JSON.parse(res.result))
+      // console.log(JSON.parse(res.result))
       let result = JSON.parse(res.result)
       backgroundAudioManager.src = result.data[0].url //播放地址
       backgroundAudioManager.title = music.name //歌曲名
@@ -76,7 +76,7 @@ Page({
           $url: "lyric"
         }
       }).then(res => {
-        console.log(res)
+        // console.log(res)
         let lyric = "无歌词"
         const lrc = JSON.parse(res.result).lrc.lyric
         if (lrc) {
@@ -129,6 +129,11 @@ Page({
     this.setData({
       isLyricShow: !this.data.isLyricShow
     })
+  },
+
+  //歌词与播放进度联动
+  timeUpdate(event) {
+    this.selectComponent('.lyric').update(event.detail.currentTime)
   },
 
 

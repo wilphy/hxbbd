@@ -7,9 +7,13 @@
 
 .lyric-panel {
   position: relative;
-  top: 50%
+  top: 50%;
 }
 
 .lyric {
   min-height: 64rpx;
+}
+
+.hightlight-lyric {
+  color: #d4237a;
 }

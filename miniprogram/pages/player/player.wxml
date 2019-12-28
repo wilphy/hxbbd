@@ -8,11 +8,11 @@
   </view>
 
   <!-- 歌词 -->
-  <w-lyric isLyricShow="{{ !isLyricShow }}" bindtap="toggleLyricShow" lyric="{{ lyric }}" />
+  <w-lyric class="lyric" isLyricShow="{{ !isLyricShow }}" bindtap="toggleLyricShow" lyric="{{ lyric }}" />
 
   <!-- 进度条 -->
   <view class="progress-bar">
-    <w-progress-bar bind:musicEnd="onNext" />
+    <w-progress-bar bind:musicEnd="onNext" bind:timeUpdate="timeUpdate"/>
   </view>
 
   <!-- 控制面板 -->

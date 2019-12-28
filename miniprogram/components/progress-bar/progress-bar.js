@@ -92,6 +92,11 @@ Component({
               ['showTime.currentTime']: `${currentTimeFmt.min}:${currentTimeFmt.sec}`
             })
             currentSec = sec
+
+            //歌词联动
+            this.triggerEvent('timeUpdate', {
+              currentTime
+            })
           }
         }
       })
@@ -136,7 +141,7 @@ Component({
 
     //当用户拖拽进度条
     onChange(event) {
-      console.log(event)
+      // console.log(event)
       //拖动
       if (event.detail.source === "touch") {
         this.data.progress = event.detail.x / (movableAreaWidth - movableViewWidth) * 100
