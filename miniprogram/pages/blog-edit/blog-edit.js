@@ -5,7 +5,21 @@ Page({
    * 页面的初始数据
    */
   data: {
+    wordsNum: 0 //输入的字符个数
+  },
 
+  // 监听输入
+  onInput(event) {
+    // console.log(event.detail.value)
+    const wordsNum = event.detail.value.length
+    if (wordsNum >= 140) {
+      wx.showModal({
+        title: '最大输入为140个字符',
+      })
+    }
+    this.setData({
+      wordsNum
+    })
   },
 
   /**

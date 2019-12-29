@@ -1,2 +1,21 @@
-<!--miniprogram/pages/blog-edit/blog-edit.wxml-->
-<text>miniprogram/pages/blog-edit/blog-edit.wxml</text>
+<view class="container">
+  <textarea class="content"
+    placeholder="分享新鲜事。。。"
+    bindinput="onInput"
+    maxlength="140"
+    ></textarea>
+
+  <view class="img-list">
+    <!-- 显示图片 -->
+
+    <!-- 选择图片 -->
+    <view class="img-wrap selectphoto">
+      <i class="iconfont tianjia"></i>
+    </view>
+  </view>
+</view>
+
+<view class="footer">
+  <text class="words-num">{{ wordsNum }} / 140</text>
+  <button size="mini" class="send-btn">发布</button>
+</view>

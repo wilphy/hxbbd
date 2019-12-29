@@ -69,9 +69,17 @@
 					"scene": null
 				},
 				{
-					"id": -1,
-					"name": "pages/blog/blog",
+					"id": 3,
+					"name": "blog",
 					"pathName": "pages/blog/blog",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": 4,
+					"name": "blog-edit",
+					"pathName": "pages/blog-edit/blog-edit",
+					"query": "ickName= \"小魏lwey\"&avatarUrl=\"https://wx.qlogo.cn/mmopen/vi_32/zia53RUE441liclLx…hFodOu6ibIQ9kZk9lhYqU8JPn4Q6yQLMgUXvHKkobsOxg/132\"",
 					"scene": null
 				}
 			]
