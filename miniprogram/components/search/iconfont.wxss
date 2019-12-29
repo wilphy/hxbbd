@@ -21,30 +21,6 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-fabu:before {
-  content: "\e60f";
-}
-
 .icon-sousuo:before {
   content: "\e6fe";
-}
-
-.icon-bofangsanjiaoxing:before {
-  content: "\e769";
-}
-
-.icon-shangyishoushangyige:before {
-  content: "\e78a";
-}
-
-.icon-xiayigexiayishou:before {
-  content: "\e7a5";
-}
-
-.icon-zanting:before {
-  content: "\e7af";
-}
-
-.icon-ziyuan:before {
-  content: "\e64e";
 }
