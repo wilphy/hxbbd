@@ -1,0 +1,7 @@
+.login-btn {
+  font-size: 32rpx;
+  height: 80rpx;
+  background-color: #d4237a;
+  color: #fff;
+  margin: 110rpx;
+}

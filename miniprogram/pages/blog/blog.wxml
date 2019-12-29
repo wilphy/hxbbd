@@ -8,4 +8,11 @@
       <w-search iconfont="iconfont" />
     </view>
   </view>
+
+  <!-- 底部弹出层 -->
+  <w-login modalShow="{{ modalShow }}"
+    bind:loginsuccess="onLoginSuccess"
+    bind:loginfail="onLoginFail"
+    >
+  </w-login>
 </view>
