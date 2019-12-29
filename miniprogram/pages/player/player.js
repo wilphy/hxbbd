@@ -20,7 +20,8 @@ Page({
     picUrl: '',
     isPlaying: false,
     isLyricShow: false, //歌词是否显示
-    lyric: ''
+    lyric: '',
+    isSame: false //是否为同一首歌
   },
 
   /**
@@ -35,7 +36,21 @@ Page({
 
   //获取音乐信息
   _loadMusicDetail(musicId) {
-    backgroundAudioManager.stop() //播放下一首时先停止当前的播放
+    //判断是否为同一首歌
+    if (musicId == app.getPlayMusicId()) {
+      this.setData({
+        isSame: true
+      })
+    } else {
+      this.setData({
+        isSame: false
+      })
+    }
+
+    if (!this.data.isSame) {
+      backgroundAudioManager.stop() //播放下一首时先停止当前的播放
+    }
+
     let music = musiclist[nowPlayingIndex]
     // console.log(music)
     //设置标题
@@ -64,10 +79,13 @@ Page({
     }).then(res => {
       // console.log(JSON.parse(res.result))
       let result = JSON.parse(res.result)
-      backgroundAudioManager.src = result.data[0].url //播放地址
-      backgroundAudioManager.title = music.name //歌曲名
-      backgroundAudioManager.coverImgUrl = music.al.picUrl //歌曲封面
-      backgroundAudioManager.singer = music.ar[0].name //歌手名
+
+      if (!this.data.isSame) {
+        backgroundAudioManager.src = result.data[0].url //播放地址
+        backgroundAudioManager.title = music.name //歌曲名
+        backgroundAudioManager.coverImgUrl = music.al.picUrl //歌曲封面
+        backgroundAudioManager.singer = music.ar[0].name //歌手名
+      }
 
       this.setData({
         isPlaying: true
