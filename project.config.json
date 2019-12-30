@@ -79,7 +79,7 @@
 					"id": 4,
 					"name": "blog-edit",
 					"pathName": "pages/blog-edit/blog-edit",
-					"query": "ickName= \"小魏lwey\"&avatarUrl=\"https://wx.qlogo.cn/mmopen/vi_32/zia53RUE441liclLx…hFodOu6ibIQ9kZk9lhYqU8JPn4Q6yQLMgUXvHKkobsOxg/132\"",
+					"query": "nickName= \"小魏lwey\"&avatarUrl=\"https://wx.qlogo.cn/mmopen/vi_32/zia53RUE441liclLx…hFodOu6ibIQ9kZk9lhYqU8JPn4Q6yQLMgUXvHKkobsOxg/132\"",
 					"scene": null
 				}
 			]

@@ -1,5 +1,11 @@
 const MAX_IMG_NUM = 9 //最大上传图片数量
 
+const db = wx.cloud.database() //云数据库初始化
+
+let content = '' //输入的文字内容
+
+let userInfo = []
+
 Page({
 
   /**
@@ -10,6 +16,15 @@ Page({
     images: [],
     selectPhoto: true // 添加图片元素是否显示
   },
+
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function(options) {
+    console.log(options)
+    userInfo = options
+  },
+
 
   // 监听输入
   onInput(event) {
@@ -23,6 +38,7 @@ Page({
     this.setData({
       wordsNum
     })
+    content = event.detail.value
   },
 
   //选择图片
@@ -67,12 +83,72 @@ Page({
     })
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function(options) {
-    console.log(options)
+  //发布
+  send() {
+
+    if (content.trim() === '') {
+      wx.showModal({
+        title: '请输入文字内容'
+      })
+      return
+    }
+
+    wx.showLoading({
+      title: '发布中',
+    })
+
+    let promiseArr = []
+
+    let fileIds = []
+
+    //图片上传
+    for (let i = 0, len = this.data.images.length; i < len; i++) {
+      let p = new Promise((resolve, reject) => {
+        let item = this.data.images[i]
+        let suffix = /\.\w+$/.exec(item)[0] //文件拓展名
+        wx.cloud.uploadFile({
+          cloudPath: 'blog/' + Date.now() + '-' + Math.random() * 1000000 + suffix,
+          filePath: item,
+          success: res => {
+            console.log(res)
+            fileIds = fileIds.concat(res.fileID)
+            resolve()
+          },
+          fail: err => {
+            console.error(err)
+            reject()
+          }
+        })
+      })
+      promiseArr.push(p)
+    }
+
+    //存入云数据库中
+    Promise.all(promiseArr).then((res) => {
+      db.collection('blog').add({
+        data: {
+          ...userInfo,
+          content,
+          img: fileIds,
+          createTime: db.serverDate() //服务端的时间
+        }
+      }).then(res => {
+        wx.hideLoading()
+        wx.showToast({
+          title: '发布成功',
+        })
+
+        //返回blog页面,并且刷新
+        wx.navigateBack()
+      })
+    }).catch(err => {
+      wx.hideLoading()
+      wx.showToast({
+        title: '发布失败',
+      })
+    })
   },
+
 
   /**
    * 生命周期函数--监听页面初次渲染完成
