@@ -59,6 +59,14 @@ Page({
     }
   },
 
+  //图片预览
+  onPreviewImg(event) {
+    wx.previewImage({
+      urls: this.data.images,
+      current: event.target.dataset.imgsrc
+    })
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
