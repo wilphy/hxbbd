@@ -33,3 +33,50 @@
   font-size: 24rpx;
   margin-right: 20rpx;
 }
+
+/* 图片样式 */
+
+.img-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 20rpx;
+}
+
+.img-wrap {
+  width: 220rpx;
+  height: 220rpx;
+  margin-right: 10rpx;
+  margin-bottom: 10rpx;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.select-photo {
+  border: 2rpx dashed #cbd1d7;
+  position: relative;
+}
+
+.icon-shanchu2 {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 40rpx;
+  height: 40rpx;
+  background-color: #000;
+  opacity: 0.4;
+  color: #fff;
+  text-align: center;
+  line-height: 40rpx;
+  font-size: 38rpx;
+  font-weight: bolder;
+}
+
+.icon-tianjia {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #cbd1d7;
+  font-size: 120rpx;
+}
