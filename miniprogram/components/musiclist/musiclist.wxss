@@ -24,11 +24,15 @@
   overflow: hidden;
   text-overflow: ellipsis;
   padding-bottom: 10rpx;
+  white-space: nowrap;
 }
 
 .musiclist-singer {
   color: #666;
   font-size: 28rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .playing view, .playing text {
