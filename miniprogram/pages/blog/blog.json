@@ -4,5 +4,6 @@
     "w-login": "/components/login/login",
     "w-blog-card": "/components/blog-card/blog-card"
   },
-  "navigationBarTitleText": "发现"
+  "navigationBarTitleText": "发现",
+  "enablePullDownRefresh": true
 }
