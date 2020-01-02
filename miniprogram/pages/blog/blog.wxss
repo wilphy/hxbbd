@@ -27,3 +27,7 @@
 .search-container {
   flex: 1;
 }
+
+.blog-list {
+  margin-top: 100rpx;
+}

@@ -9,10 +9,16 @@
     </view>
   </view>
 
+  <!-- 博客卡片列表展示 -->
+
+  <view class="blog-list">
+    <block wx:for="{{ blogList }}" wx:key="_id">
+      <view class="blog-panel"></view>
+      <w-blog-card blog="{{item}}" />
+    </block>
+  </view>
+
   <!-- 底部弹出层 -->
-  <w-login modalShow="{{ modalShow }}"
-    bind:loginsuccess="onLoginSuccess"
-    bind:loginfail="onLoginFail"
-    >
+  <w-login modalShow="{{ modalShow }}" bind:loginsuccess="onLoginSuccess" bind:loginfail="onLoginFail">
   </w-login>
 </view>
