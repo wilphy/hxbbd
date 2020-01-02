@@ -40,6 +40,10 @@
   display: flex;
   flex-wrap: wrap;
   margin-top: 20rpx;
+  position: absolute;
+  left: 0;
+  top: 360rpx;
+  padding: 20rpx;
 }
 
 .img-wrap {
