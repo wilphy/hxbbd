@@ -27,6 +27,7 @@ page {
 .blog-time {
   font-size: 24rpx;
   color: #939393;
+  padding: 5rpx;
 }
 
 .blog-content {
