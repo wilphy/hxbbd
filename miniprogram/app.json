@@ -6,7 +6,10 @@
     "components/playlist/playlist",
     "pages/musiclist/musiclist",
     "pages/player/player",
-    "pages/blog-edit/blog-edit"
+    "pages/blog-edit/blog-edit",
+    "pages/profile-played/profile-played",
+    "pages/bloghistory/bloghistory"
+
   ],
   "requiredBackgroundModes": [
     "audio"
@@ -21,8 +24,7 @@
   "tabBar": {
     "color": "#515151",
     "selectedColor": "#d4237a",
-    "list": [
-      {
+    "list": [{
         "pagePath": "pages/playlist/playlist",
         "text": "音乐",
         "iconPath": "images/music.png",

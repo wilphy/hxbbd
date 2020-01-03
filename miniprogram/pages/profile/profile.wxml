@@ -1,2 +1,30 @@
-<!--miniprogram/pages/profile/profile.wxml-->
-<text>miniprogram/pages/profile/profile.wxml</text>
+<view class="profile-header">
+	<view class="userimg">
+		<open-data type="userAvatarUrl"></open-data>
+	</view>
+	<open-data type="userNickName" class="nickname"></open-data>
+</view>
+
+<view class="nav">
+	<view class="nav-item">
+		<navigator class="content" hover-class="none" url="/pages/profile-played/profile-played">
+			<icon class="iconfont icon-ziyuanldpi"></icon>
+			<text class="text">最近播放</text>
+			<icon class="iconfont icon-xiangyou"></icon>
+		</navigator>
+	</view>
+	<view class="nav-item">
+		<navigator class="content" hover-class="none" url="/pages/bloghistory/bloghistory">
+			<icon class="iconfont icon-fabu1"></icon>
+			<text class="text">我的发布</text>
+			<icon class="iconfont icon-xiangyou"></icon>
+		</navigator>
+	</view>
+	<view class="nav-item">
+		<navigator class="content" hover-class="none">
+			<icon class="iconfont icon-weibiaoti--"></icon>
+			<text class="text">小程序码</text>
+			<icon class="iconfont icon-xiangyou"></icon>
+		</navigator>
+	</view>
+</view>
