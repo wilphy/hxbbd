@@ -1,2 +1,7 @@
-<!--pages/bloghistory/bloghistory.wxml-->
-<text>pages/bloghistory/bloghistory.wxml</text>
+<view>
+	<block wx:for="{{ blogList }}" wx:key="_id">
+		<view class="blog-panel">
+			<w-blog-card blog="{{ item }}" />
+		</view>
+	</block>
+</view>

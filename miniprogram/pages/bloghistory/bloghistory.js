@@ -1,18 +1,41 @@
 // pages/bloghistory/bloghistory.js
+const MAX_LIMIT = 10
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    blogList: []
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this._getListByCloudFn()
+  },
 
+  _getListByCloudFn() {
+    wx.showLoading({
+      title: 'loading'
+    })
+    wx.cloud.callFunction({
+      name: 'blog',
+      data: {
+        $url: 'getListByOpenid',
+        start: this.data.blogList.length,
+        count: MAX_LIMIT
+      }
+    }).then(res => {
+      console.log(res)
+      this.setData({
+        // blogList: res.result
+        blogList: this.data.blogList.concat(res.result)
+      })
+
+      wx.hideLoading()
+    })
   },
 
   /**
@@ -54,7 +77,7 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-
+    this._getListByCloudFn()
   },
 
   /**
