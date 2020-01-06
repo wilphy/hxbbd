@@ -7,7 +7,7 @@
 
 <view class="nav">
 	<view class="nav-item">
-		<navigator class="content" hover-class="none" url="/pages/profile-played/profile-played">
+		<navigator class="content" hover-class="none" url="/pages/play-history/play-history">
 			<icon class="iconfont icon-ziyuanldpi"></icon>
 			<text class="text">最近播放</text>
 			<icon class="iconfont icon-xiangyou"></icon>

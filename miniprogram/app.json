@@ -7,7 +7,7 @@
     "pages/musiclist/musiclist",
     "pages/player/player",
     "pages/blog-edit/blog-edit",
-    "pages/profile-played/profile-played",
+    "pages/play-history/play-history",
     "pages/bloghistory/bloghistory"
 
   ],

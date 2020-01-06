@@ -27,7 +27,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function(options) {
+  onLoad: function (options) {
     // console.log(options)
     nowPlayingIndex = options.index
     musiclist = wx.getStorageSync('musiclist')
@@ -85,6 +85,9 @@ Page({
         backgroundAudioManager.title = music.name //歌曲名
         backgroundAudioManager.coverImgUrl = music.al.picUrl //歌曲封面
         backgroundAudioManager.singer = music.ar[0].name //歌手名
+
+        //保存播放列表
+        this.savePlayHistory()
       }
 
       this.setData({
@@ -172,52 +175,73 @@ Page({
     })
   },
 
+  //保存播放历史
+  savePlayHistory() {
+    const music = musiclist[nowPlayingIndex]
+    const openid = app.globalData.openid
+    const history = wx.getStorageSync(openid)
+    let isHave = false
+    for (let i = 0, len = history.length; i < len; i++) {
+      if (history[i].id == music.id) {
+        isHave = true
+        break
+      }
+    }
+    if (!isHave) {
+      history.unshift(music)
+      wx.setStorage({
+        key: openid,
+        data: history
+      })
+    }
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function() {
+  onReady: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {
+  onShow: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide: function() {
+  onHide: function () {
 
   },
 
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload: function() {
+  onUnload: function () {
 
   },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh: function() {
+  onPullDownRefresh: function () {
 
   },
 
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function() {
+  onReachBottom: function () {
 
   },
 
   /**
    * 用户点击右上角分享
    */
-  onShareAppMessage: function() {
+  onShareAppMessage: function () {
 
   }
 })
