@@ -1,5 +1,6 @@
 // pages/bloghistory/bloghistory.js
-const MAX_LIMIT = 10
+const MAX_LIMIT = 5
+const db = wx.cloud.database()
 Page({
 
   /**
@@ -13,9 +14,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this._getListByCloudFn()
+    // this._getListByCloudFn()
+    this._getListByMiniprogram()
   },
 
+  //通过云函数查询数据库
   _getListByCloudFn() {
     wx.showLoading({
       title: 'loading'
@@ -36,6 +39,34 @@ Page({
 
       wx.hideLoading()
     })
+  },
+
+  //通过小程序端查询数据库
+  _getListByMiniprogram() {
+
+    wx.showLoading({
+      title: 'loading',
+    })
+
+    db.collection('blog')
+      .skip(this.data.blogList.length)
+      .orderBy('createTime', 'desc')
+      .limit(MAX_LIMIT)
+      .get().then(res => {
+        console.log(res)
+
+        let _bloglist = res.data
+        for (let i = 0, len = _bloglist.length; i < len; i++) {
+          _bloglist[i].createTime = _bloglist[i].createTime.toString()
+        }
+
+        this.setData({
+          // blogList: res.data
+          blogList: this.data.blogList.concat(_bloglist)
+        })
+
+        wx.hideLoading()
+      })
   },
 
   /**
@@ -77,7 +108,8 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
-    this._getListByCloudFn()
+    // this._getListByCloudFn()
+    this._getListByMiniprogram()
   },
 
   /**
