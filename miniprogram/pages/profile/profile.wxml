@@ -21,10 +21,10 @@
 		</navigator>
 	</view>
 	<view class="nav-item">
-		<navigator class="content" hover-class="none">
+		<view class="content" bindtap="onTapQrCode">
 			<icon class="iconfont icon-weibiaoti--"></icon>
 			<text class="text">小程序码</text>
 			<icon class="iconfont icon-xiangyou"></icon>
-		</navigator>
+		</view>
 	</view>
 </view>

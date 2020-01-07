@@ -15,6 +15,23 @@ Page({
 
   },
 
+  onTapQrCode() {
+    wx.showLoading({
+      title: '二维码生成中'
+    })
+    wx.cloud.callFunction({
+      name: "getQrCode"
+    }).then(res => {
+      console.log(res)
+      const fileID = res.result
+      wx.previewImage({
+        urls: [fileID],
+        current: fileID
+      })
+      wx.hideLoading()
+    })
+  },
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
