@@ -2,12 +2,14 @@
 
 let userInfo = {}
 
+const db = wx.cloud.database()
+
 Component({
   /**
    * 组件的属性列表
    */
   properties: {
-
+    blogId: String
   },
 
   //组件样式传递
@@ -53,7 +55,8 @@ Component({
       })
     },
 
-    onLoginSuccess() {
+    onLoginSuccess(event) {
+      userInfo = event.detail
       //授权框消失后显示评论框
       this.setData({
         loginShow: false
@@ -68,6 +71,48 @@ Component({
       wx.showModal({
         title: '授权用户才能评论',
         content: ''
+      })
+    },
+
+    //监听输入
+    onInput(event) {
+      this.setData({
+        content: event.detail.value
+      })
+    },
+
+    //发送评论
+    onSend() {
+      //插入数据库
+      let content = this.data.content
+      if (content.trim() == '') {
+        wx.showModal({
+          title: '评论内容不能为空',
+        })
+        return
+      }
+      wx.showLoading({
+        title: '评论中',
+        mask: true
+      })
+      db.collection('blog-comment').add({
+        data: {
+          content,
+          createTime: db.serverDate(),
+          blogId: this.properties.blogId,
+          nickName: userInfo.nickName,
+          avatarUrl: userInfo.avatarUrl
+        }
+
+      }).then(res => {
+        wx.hideLoading()
+        wx.showToast({
+          title: '评论成功'
+        })
+        this.setData({
+          modalShow: false,
+          content: ''
+        })
       })
     }
   }

@@ -15,7 +15,14 @@
 <!-- 底部弹出层 -->
 <w-bottom-modal modalShow="{{ modalShow }}">
 	<view slot="modal-content">
-		<textarea name="content" class="comment-content" placeholder="写评论" value="{{ content }}" fixed="true"></textarea>
-		<button size="mini" class="send" cursor="-1">发送</button>
+		<textarea 
+      name="content" 
+      class="comment-content" 
+      placeholder="写评论" 
+      value="{{ content }}" 
+      fixed="true" 
+      bindinput="onInput"
+    ></textarea>
+		<button size="mini" class="send" bindtap="onSend">发送</button>
 	</view>
 </w-bottom-modal>

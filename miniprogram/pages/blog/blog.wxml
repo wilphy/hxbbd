@@ -10,13 +10,12 @@
 	</view>
 
 	<!-- 博客卡片列表展示 -->
-
 	<view class="blog-list">
 		<block wx:for="{{ blogList }}" wx:key="_id">
 			<view class="blog-panel"></view>
 			<w-blog-card blog="{{item}}" />
 			<!-- 博客评论与分享 -->
-			<w-blog-ctrl iconfont="iconfont" icon-pinglun="icon-pinglun" icon-share_icon="icon-share_icon" />
+			<w-blog-ctrl blogId="{{ item._id }}" iconfont="iconfont" icon-pinglun="icon-pinglun" icon-share_icon="icon-share_icon" />
 		</block>
 	</view>
 
