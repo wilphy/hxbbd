@@ -1,0 +1,21 @@
+<view class="ctrl">
+	<view class="ctrl-item" bindtap="onComment">
+		<icon class="iconfont icon-pinglun icon"></icon>
+		<text>评论</text>
+	</view>
+	<view class="ctrl-item share">
+		<icon class="iconfont icon-share_icon icon"></icon>
+		<text>分享</text>
+	</view>
+</view>
+
+<!-- 登录授权组件 -->
+<w-login modalShow="{{ loginShow }}" bind:loginsuccess="onLoginSuccess" bind:loginfail="onLoginFail" />
+
+<!-- 底部弹出层 -->
+<w-bottom-modal modalShow="{{ modalShow }}">
+	<view slot="modal-content">
+		<textarea name="content" class="comment-content" placeholder="写评论" value="{{ content }}" fixed="true"></textarea>
+		<button size="mini" class="send" cursor="-1">发送</button>
+	</view>
+</w-bottom-modal>

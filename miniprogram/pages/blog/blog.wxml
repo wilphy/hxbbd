@@ -1,24 +1,26 @@
 <view class="container">
-  <!-- 头部 -->
-  <view class="header">
-    <view class="publish-container" bind:tap="onPublish">
-      <i class="iconfont icon-fabu"></i>
-    </view>
-    <view class="search-container">
-      <w-search iconfont="iconfont" bind:search="onSearch" />
-    </view>
-  </view>
+	<!-- 头部 -->
+	<view class="header">
+		<view class="publish-container" bind:tap="onPublish">
+			<i class="iconfont icon-fabu"></i>
+		</view>
+		<view class="search-container">
+			<w-search iconfont="iconfont" bind:search="onSearch" />
+		</view>
+	</view>
 
-  <!-- 博客卡片列表展示 -->
+	<!-- 博客卡片列表展示 -->
 
-  <view class="blog-list">
-    <block wx:for="{{ blogList }}" wx:key="_id">
-      <view class="blog-panel"></view>
-      <w-blog-card blog="{{item}}" />
-    </block>
-  </view>
+	<view class="blog-list">
+		<block wx:for="{{ blogList }}" wx:key="_id">
+			<view class="blog-panel"></view>
+			<w-blog-card blog="{{item}}" />
+			<!-- 博客评论与分享 -->
+			<w-blog-ctrl iconfont="iconfont" icon-pinglun="icon-pinglun" icon-share_icon="icon-share_icon" />
+		</block>
+	</view>
 
-  <!-- 底部弹出层 -->
-  <w-login modalShow="{{ modalShow }}" bind:loginsuccess="onLoginSuccess" bind:loginfail="onLoginFail">
-  </w-login>
+	<!-- 底部弹出层 -->
+	<w-login modalShow="{{ modalShow }}" bind:loginsuccess="onLoginSuccess" bind:loginfail="onLoginFail">
+	</w-login>
 </view>
