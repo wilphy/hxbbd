@@ -4,8 +4,10 @@
 		<text>评论</text>
 	</view>
 	<view class="ctrl-item share">
-		<icon class="iconfont icon-share_icon icon"></icon>
-		<text>分享</text>
+		<button size="mini" open-type="share" data-blogid="{{ blogId }}" data-blog="{{ blog }}" class="share-btn" hover-class="share-hover">
+			<icon class="iconfont icon-fenxiang icon"></icon>
+			<text>分享</text>
+		</button>
 	</view>
 </view>
 
@@ -15,13 +17,7 @@
 <!-- 底部弹出层 -->
 <w-bottom-modal modalShow="{{ modalShow }}">
 	<form slot="modal-content" report-submit="true" bind:submit="onSend">
-		<textarea 
-      name="content" 
-      class="comment-content" 
-      placeholder="写评论" 
-      value="{{ content }}" 
-      fixed="true" 
-    ></textarea>
+		<textarea name="content" class="comment-content" placeholder="写评论" value="{{ content }}" fixed="true"></textarea>
 		<button size="mini" class="send" form-type="submit">发送</button>
 	</form>
 </w-bottom-modal>

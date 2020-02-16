@@ -9,14 +9,15 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    blogId: String
+    blogId: String,
+    blog: Object
   },
 
   //组件样式传递
   externalClasses: [
     'iconfont',
     'icon-pinglun',
-    'icon-share_icon'
+    'icon-fenxiang'
   ],
 
   /**
