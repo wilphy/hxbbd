@@ -8,8 +8,8 @@
     "pages/player/player",
     "pages/blog-edit/blog-edit",
     "pages/play-history/play-history",
-    "pages/bloghistory/bloghistory"
-
+    "pages/bloghistory/bloghistory",
+    "pages/blog-comment/blog-comment"
   ],
   "requiredBackgroundModes": [
     "audio"
@@ -24,7 +24,8 @@
   "tabBar": {
     "color": "#515151",
     "selectedColor": "#d4237a",
-    "list": [{
+    "list": [
+      {
         "pagePath": "pages/playlist/playlist",
         "text": "音乐",
         "iconPath": "images/music.png",

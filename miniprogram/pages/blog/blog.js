@@ -78,8 +78,8 @@ Page({
       name: 'blog',
       data: {
         keyword, //搜索关键字
-        start,  
-        $url: 'list', 
+        start,
+        $url: 'list',
         count: 5 //每次获取的数量
       }
     }).then(res => {
@@ -88,6 +88,13 @@ Page({
       })
       wx.hideLoading()
       wx.stopPullDownRefresh()
+    })
+  },
+
+  //评论详情页跳转
+  goComment(event) {
+    wx.navigateTo({
+      url: '../../pages/blog-comment/blog-comment?blogId=' + event.target.dataset.blogid,
     })
   },
 

@@ -14,15 +14,14 @@
 
 <!-- 底部弹出层 -->
 <w-bottom-modal modalShow="{{ modalShow }}">
-	<view slot="modal-content">
+	<form slot="modal-content" report-submit="true" bind:submit="onSend">
 		<textarea 
       name="content" 
       class="comment-content" 
       placeholder="写评论" 
       value="{{ content }}" 
       fixed="true" 
-      bindinput="onInput"
     ></textarea>
-		<button size="mini" class="send" bindtap="onSend">发送</button>
-	</view>
+		<button size="mini" class="send" form-type="submit">发送</button>
+	</form>
 </w-bottom-modal>

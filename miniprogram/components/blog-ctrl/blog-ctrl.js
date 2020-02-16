@@ -74,17 +74,11 @@ Component({
       })
     },
 
-    //监听输入
-    onInput(event) {
-      this.setData({
-        content: event.detail.value
-      })
-    },
-
     //发送评论
-    onSend() {
+    onSend(event) {
+      console.log(event)
       //插入数据库
-      let content = this.data.content
+      let content = event.detail.value.content
       if (content.trim() == '') {
         wx.showModal({
           title: '评论内容不能为空',
@@ -103,7 +97,6 @@ Component({
           nickName: userInfo.nickName,
           avatarUrl: userInfo.avatarUrl
         }
-
       }).then(res => {
         wx.hideLoading()
         wx.showToast({
@@ -114,6 +107,9 @@ Component({
           content: ''
         })
       })
+
+      // 通知父元素刷新评论页面
+      this.triggerEvent('refreshCommentList')
     }
   }
 })
