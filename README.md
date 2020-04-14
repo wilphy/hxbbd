@@ -1,5 +1,5 @@
 # 截图
-![Image Text](https://github.com/wilphy/hxbbd/blob/master/miniprogram/images/screenshot/hxbbd-index.png)
+![Image Text](https://raw.githubusercontent.com/wilphy/hxbbd/blob/master/miniprogram/images/screenshot/hxbbd-index.png)
 ![Image Text](https://github.com/wilphy/hxbbd/blob/master/miniprogram/images/screenshot/hxbbd-blog.png)
 ![Image Text](https://github.com/wilphy/hxbbd/blob/master/miniprogram/images/screenshot/hxbbd-my.png)
 ![Image Text](https://github.com/wilphy/hxbbd/blob/master/miniprogram/images/screenshot/hxbbd-playlist.png)
