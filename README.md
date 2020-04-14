@@ -11,6 +11,10 @@
 ![Image Text](https://raw.githubusercontent.com/wilphy/hxbbd/master/miniprogram/images/screenshot/hxbbd-edit.png)
 ![Image Text](https://raw.githubusercontent.com/wilphy/hxbbd/master/miniprogram/images/screenshot/hxbbd-modal.png)
 ![Image Text](https://raw.githubusercontent.com/wilphy/hxbbd/master/miniprogram/images/screenshot/hxbbd-mySend.png)
+![Image Text](https://raw.githubusercontent.com/wilphy/hxbbd/master/miniprogram/images/screenshot/hxbbd-playlist-manage.png)
+![Image Text](https://raw.githubusercontent.com/wilphy/hxbbd/master/miniprogram/images/screenshot/hxbbd-mySend.png)
+![Image Text](https://raw.githubusercontent.com/wilphy/hxbbd/master/miniprogram/images/screenshot/hxbbd-swiper-manage.png)
+![Image Text](https://raw.githubusercontent.com/wilphy/hxbbd/master/miniprogram/images/screenshot/hxbbd-blog-manage.png)
 
 
 # 云开发 quickstart
