@@ -13,7 +13,7 @@
 ![Image Text](https://raw.githubusercontent.com/wilphy/hxbbd/master/miniprogram/images/screenshot/hxbbd-mySend.png)
 ![Image Text](https://raw.githubusercontent.com/wilphy/hxbbd/master/miniprogram/images/screenshot/playlist-manage.png)
 ![Image Text](https://raw.githubusercontent.com/wilphy/hxbbd/master/miniprogram/images/screenshot/playlist-edit.png)
-![Image Text](https://raw.githubusercontent.com/wilphy/hxbbd/master/miniprogram/images/screenshot/swiper-manage.png.png)
+![Image Text](https://raw.githubusercontent.com/wilphy/hxbbd/master/miniprogram/images/screenshot/swiper-manage.png)
 ![Image Text](https://raw.githubusercontent.com/wilphy/hxbbd/master/miniprogram/images/screenshot/blog-manage.png)
 
 
