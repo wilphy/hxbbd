@@ -1,3 +1,6 @@
+# 截图
+![Image Text](https://github.com/wilphy/hxbbd/blob/master/miniprogram/images/screenshot/hxbbd-index.png)
+
 # 云开发 quickstart
 
 这是云开发的快速启动指引，其中演示了如何上手使用云开发的三大基础能力：
